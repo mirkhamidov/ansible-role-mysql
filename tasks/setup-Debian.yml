@@ -22,10 +22,6 @@
     filename: mysql
   when: mysql_version != '5.5'
 
-- name: Determine required MySQL Python libraries.
-  set_fact:
-    deb_mysql_python_package: "{% if 'python3' in ansible_python_interpreter|default('') %}python3-mysqldb{% else %}python-mysqldb{% endif %}"
-
 - name: Ensure MySQL Python libraries are installed.
   apt:
     name: "{{ deb_mysql_python_package }}"
