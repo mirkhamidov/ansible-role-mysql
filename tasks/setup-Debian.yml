@@ -22,11 +22,6 @@
     filename: mysql
   when: mysql_version != '5.5'
 
-- name: Ensure MySQL Python libraries are installed.
-  apt:
-    name: "{{ deb_mysql_python_package }}"
-    state: present
-
 - name: Ensure MySQL packages are installed.
   apt:
     name: "{{ mysql_packages }}"
